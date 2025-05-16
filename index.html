@@ -163,6 +163,8 @@
   margin: 0 auto;
   text-align: center;
   animation: typing 3s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+  opacity: 1;
+  transition: opacity 2s ease;
 }
 
 @keyframes typing {
@@ -175,6 +177,31 @@
   50% { border-color: orange; }
 }
 </style>
+
+<script>
+  const text = document.getElementById('animated-text');
+
+  // Initial fade out after 30 seconds
+  setTimeout(() => {
+    text.style.opacity = '0';
+  }, 30000);
+
+  // Loop: fade in and fade out every 60 seconds
+  setInterval(() => {
+    text.style.opacity = '1';
+
+    // Optional: retrigger typewriter animation by resetting width
+    text.style.width = '0';
+    text.style.animation = 'none';
+    void text.offsetWidth; // Trigger reflow to restart animation
+    text.style.animation = 'typing 3s steps(40, end) forwards, blink-caret 0.75s step-end infinite';
+
+    // Fade out again after 30s
+    setTimeout(() => {
+      text.style.opacity = '0';
+    }, 30000);
+  }, 60000);
+</script>
 
 <body>
   <div class="container">
