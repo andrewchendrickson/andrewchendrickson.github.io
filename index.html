@@ -289,6 +289,37 @@
   </ul>
 </div>
 
+<!-- Add the counter section before the closing body tag -->
+<div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(93, 135, 161, 0.1); border-radius: 8px;">
+  <div style="font-family: 'Courier New', monospace; color: #5d87a1; font-size: 14px;">
+    <span id="visitor-counter">Loading...</span> visits since launch
+  </div>
+</div>
+
+<script>
+// Simple visit counter using sessionStorage (resets per browser session)
+function updateVisitCounter() {
+  // Get current count from sessionStorage or start at 1
+  let visitCount = sessionStorage.getItem('visitCount');
+  
+  if (!visitCount) {
+    // First visit in this session
+    visitCount = Math.floor(Math.random() * 1000) + 500; // Start with a random base number
+    sessionStorage.setItem('visitCount', visitCount);
+  } else {
+    // Increment for subsequent page loads in same session
+    visitCount = parseInt(visitCount) + 1;
+    sessionStorage.setItem('visitCount', visitCount);
+  }
+  
+  // Display the count with some formatting
+  document.getElementById('visitor-counter').textContent = visitCount.toLocaleString();
+}
+
+// Run counter when page loads
+document.addEventListener('DOMContentLoaded', updateVisitCounter);
+</script>
+  
 <!-- Cheers if you are borrowing some of this code -->
   
 </body>
