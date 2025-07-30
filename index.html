@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andy Hendrickson</title>
-<link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="favicon.png" type="image/png">
   <style>
     * {
       margin: 0;
@@ -68,6 +67,11 @@
       padding-left: 1rem;
       list-style-type: disc;
       color: #475569;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
     }
 
     a {
@@ -118,6 +122,30 @@
       color: #0A66C2;
     }
 
+    .typewriter {
+      font-family: monospace;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 0.15em solid orange;
+      width: 0;
+      margin: 2rem auto;
+      text-align: center;
+      opacity: 1;
+      transition: opacity 2s ease;
+      font-size: 1.2rem;
+      color: #5d87a1;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange; }
+    }
+
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -126,6 +154,17 @@
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
       }
     }
 
@@ -145,271 +184,290 @@
       p {
         font-size: 1rem;
       }
+
+      .typewriter {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 
-<h3 id="animated-text" class="typewriter"> donate to open source projects that matter to you.</h3>
-
-<style>
-.typewriter {
-  font-family: monospace;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 0.15em solid orange;
-  width: 0;
-  margin: 0 auto;
-  text-align: center;
-  opacity: 1;
-  transition: opacity 2s ease;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange; }
-}
-</style>
-
-<script>
-  const text = document.getElementById('animated-text');
-
-  function startTypingAnimation() {
-    // Reset animation
-    text.style.width = '0';
-    text.style.animation = 'none';
-    void text.offsetWidth; // force reflow
-    text.style.animation = 'typing 3s steps(40, end) forwards, blink-caret 0.75s step-end infinite';
-  }
-
-  function cycleText() {
-    // Fade in
-    text.style.opacity = '1';
-    startTypingAnimation();
-
-    // Fade out after 30s
-    setTimeout(() => {
-      text.style.opacity = '0';
-    }, 30000);
-  }
-
-  // Initial cycle
-  cycleText();
-
-  // Repeat every 60s
-  setInterval(cycleText, 60000);
-</script>
-  
-
-
-
 <body>
   <div class="container">
+    <h3 id="animated-text" class="typewriter">donate to open source projects that matter to you.</h3>
 
     <img src="favicon.png" alt="Andy Hendrickson" style="width: 120px; border-radius: 50%; display: block; margin: 0 auto 1rem;">
-    <h1>#_  whois Andy Hendrickson</h1>
-     <a href="https://andrewchendrickson.github.io/who-is-AndyH-2025.png" </a>
+    <h1>#_ whois Andy Hendrickson</h1>
+    
     <div class="content">
-      <p>I currently serve as the Chief Technology Officer for the Enforcement Bureau at the Federal Communications Commission (FCC), where I provide strategic and technical leadership to support the agency’s mission of protecting the public interest. Focus areas include networks, the space economy, artificial intelligence, robocall and robotext mitigation, cybersecurity, spectrum enforcement, fraud prevention, privacy, data protection, mediation, and enforcement related to wireless and wireline network outages, 911 systems, public safety, critical infrastructure, global positioning systems, homeland security, and national security.</p>
+      <p>I currently serve as the Chief Technology Officer for the Enforcement Bureau at the Federal Communications Commission (FCC), where I provide strategic and technical leadership to support the agency's mission of protecting the public interest. Focus areas include networks, the space economy, artificial intelligence, robocall and robotext mitigation, cybersecurity, spectrum enforcement, fraud prevention, privacy, data protection, mediation, and enforcement related to wireless and wireline network outages, 911 systems, public safety, critical infrastructure, global positioning systems, homeland security, and national security.</p>
 
       <p>Prior to joining the FCC, I spent over 20 years in the telecommunications industry as a technology executive. During my tenure at Verizon, I played a key role in the rollout of the 5G network and helped lead the engineering and operations of the Verizon Cloud Platform (VCP). I have managed and contributed to complex initiatives in software-defined networking (SDN), virtualization and cloud computing, cybersecurity, data analytics, and geographic information systems (GIS).</p>
 
-      <p>Personally, I am invested in open technology.  I am involved with the Linux Foundation, Open Infrastructure Foundation, and the Network Time Foundation. I also participate on the Board of the Rutgers School of Communication & Information Alumni Association. My most significant growth always seems to come from the lessons of my two children. In my downtime, I'm either deep in the world of audio recording and engineering or rocking out on various instruments.</p>
+      <p>Personally, I am invested in open technology. I am involved with the Linux Foundation, Open Infrastructure Foundation, and the Network Time Foundation. I also participate on the Board of the Rutgers School of Communication & Information Alumni Association. My most significant growth always seems to come from the lessons of my two children. In my downtime, I'm either deep in the world of audio recording and engineering or rocking out on various instruments.</p>
 
       <p>I hold dual degrees from Rutgers University, having studied at both the School of Environmental and Biological Sciences and the School of Communication and Information.</p>
 
- <h2>Public Appearances</h2>
+      <h2>Public Appearances</h2>
       <ul>
         <li><strong>August 7-10, 2025</strong> – Speaker, Default-to-Safe with AI, <em>The RF Garden at DEF CON.</em> Las Vegas, NV</li>
-      </ul>
-      <ul>
         <li><strong>November 10-13, 2025</strong> – TBA, <em>Kubecon and CloudNativeCon - North America 2025.</em> Georgia World Congress Center, Atlanta, GA</li>
       </ul>      
       
-       <h2>Past Appearances</h2>
+      <h2>Past Appearances</h2>
       <ul>
         <li><strong>April 28, 2025</strong> – Guest Lecture, Artificial Intelligence in the Telecommunications Industry. <em>College of Engineering - Virginia Commonwealth University,</em> Richmond, VA</li>
       </ul>
 
+      <div class="social">
+        <a href="https://www.linkedin.com/in/andrewhendrickson/" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 
+              2.239 5 5 5h14c2.762 0 5-2.239 
+              5-5v-14c0-2.761-2.238-5-5-5zm-11 
+              19h-3v-11h3v11zm-1.5-12.268c-.966 
+              0-1.75-.79-1.75-1.764s.784-1.764 
+              1.75-1.764 1.75.79 
+              1.75 1.764-.783 1.764-1.75 
+              1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 
+              0v5.604h-3v-11h3v1.765c1.396-2.586 
+              7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+      </div>
 
-<!-- Add contact button after the social links -->
-<div style="text-align: center; margin-top: 20px;">
-  <button onclick="openContactModal()" style="
-    background: linear-gradient(135deg, #5d87a1, #4a6b7a);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(93, 135, 161, 0.3);
-  ">
-    💬 Quick Connect
-  </button>
-</div>
-
-<!-- Contact Modal -->
-<div id="contact-modal" style="
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 2000;
-  backdrop-filter: blur(5px);
-" onclick="closeContactModal()">
-  
-  <div style="
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    max-width: 400px;
-    width: 90%;
-    animation: modalSlideIn 0.3s ease;
-  " onclick="event.stopPropagation()">
-    
-    <div style="text-align: center; margin-bottom: 25px;">
-      <h3 style="color: #5d87a1; margin-bottom: 10px; font-size: 1.4rem;">Let's Connect!</h3>
-      <p style="color: #666; font-size: 0.9rem;">Choose your preferred way to reach out</p>
+      <!-- Quick Connect Button -->
+      <div style="text-align: center; margin-top: 20px;">
+        <button onclick="openContactModal()" style="
+          background: linear-gradient(135deg, #5d87a1, #4a6b7a);
+          color: white;
+          border: none;
+          padding: 12px 24px;
+          border-radius: 25px;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 2px 10px rgba(93, 135, 161, 0.3);
+        ">
+          💬 Quick Connect
+        </button>
+      </div>
     </div>
-    
-    <div style="display: grid; gap: 15px;">
-      <a href="https://www.linkedin.com/in/andrewhendrickson/" target="_blank" style="
-        display: flex;
-        align-items: center;
-        padding: 15px;
-        background: #0A66C2;
-        color: white;
+
+    <!-- Visit Counter -->
+    <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(93, 135, 161, 0.1); border-radius: 8px;">
+      <div style="font-family: 'Courier New', monospace; color: #5d87a1; font-size: 14px;">
+        <span id="visitor-counter">Loading...</span> visits since launch
+      </div>
+    </div>
+
+    <!-- CRSSA Button -->
+    <div style="text-align:center; margin-top: 20px;">
+      <a href="https://crssa.rutgers.edu/" target="_blank" style="
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #5d87a1;
+        color: #ffffff;
         text-decoration: none;
-        border-radius: 10px;
-        transition: transform 0.2s ease;
-      " onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
-        <svg style="width: 20px; height: 20px; margin-right: 12px;" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-        </svg>
-        <span>Connect on LinkedIn</span>
+        border-radius: 8px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      " onmouseover="this.style.backgroundColor='#0055a5'; this.style.transform='scale(1.05)'" onmouseout="this.style.backgroundColor='#5d87a1'; this.style.transform='scale(1)'">
+        🌍 Explore CRSSA at Rutgers
       </a>
+    </div>
+
+    <!-- Copyright -->
+    <div style="text-align: center; font-family: 'Courier New', Courier, monospace; margin-top: 20px;">
+      <p style="list-style: none; padding: 0; margin: 0; font-size: 12px; color: #666;">
+        Copyright default-to-safe.org 2025. All rights reserved.
+      </p>
+      <p style="font-size: 11px; color: #999; margin-top: 5px;">
+        <!-- Cheers if you are borrowing some of this code -->
+      </p>
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div id="contact-modal" style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+  " onclick="closeContactModal()">
+    
+    <div style="
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      width: 90%;
+      animation: modalSlideIn 0.3s ease;
+    " onclick="event.stopPropagation()">
       
-      <button onclick="copyEmail()" style="
+      <div style="text-align: center; margin-bottom: 25px;">
+        <h3 style="color: #5d87a1; margin-bottom: 10px; font-size: 1.4rem;">Let's Connect!</h3>
+        <p style="color: #666; font-size: 0.9rem;">Choose your preferred way to reach out</p>
+      </div>
+      
+      <div style="display: grid; gap: 15px;">
+        <a href="https://www.linkedin.com/in/andrewhendrickson/" target="_blank" style="
+          display: flex;
+          align-items: center;
+          padding: 15px;
+          background: #0A66C2;
+          color: white;
+          text-decoration: none;
+          border-radius: 10px;
+          transition: transform 0.2s ease;
+        " onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+          <svg style="width: 20px; height: 20px; margin-right: 12px;" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          <span>Connect on LinkedIn</span>
+        </a>
+        
+        <button onclick="copyEmail()" style="
+          display: flex;
+          align-items: center;
+          padding: 15px;
+          background: #34D399;
+          color: white;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: transform 0.2s ease;
+          font-size: 14px;
+        " onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+          <span style="margin-right: 12px;">📧</span>
+          <span id="email-button-text">Copy Andy's Email Address</span>
+        </button>
+
+        <a href="https://crssa.rutgers.edu/" target="_blank" style="
+          display: flex;
+          align-items: center;
+          padding: 15px;
+          background: #5d87a1;
+          color: white;
+          text-decoration: none;
+          border-radius: 10px;
+          transition: transform 0.2s ease;
+        " onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+          <span style="margin-right: 12px;">🌍</span>
+          <span>Visit CRSSA</span>
+        </a>
+      </div>
+      
+      <button onclick="closeContactModal()" style="
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: #999;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
         display: flex;
         align-items: center;
-        padding: 15px;
-        background: #34D399;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-        font-size: 14px;
-      " onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
-        <span style="margin-right: 12px;">📧</span>
-        <span id="email-button-text">Copy Andy's Email Address</span>
-      </button>
-</div>
-
-<style>
-@keyframes modalSlideIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -60%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-}
-</style>
-
-<script>
-function openContactModal() {
-  document.getElementById('contact-modal').style.display = 'block';
-  document.body.style.overflow = 'hidden';
-}
-
-function closeContactModal() {
-  document.getElementById('contact-modal').style.display = 'none';
-  document.body.style.overflow = 'auto';
-}
-
-function copyEmail() {
-  // Replace with actual email - using placeholder for demo
-  const email = "andrew.hendrickson@gmail.com"; // 
-  
-  navigator.clipboard.writeText(email).then(() => {
-    const button = document.getElementById('email-button-text');
-    const originalText = button.textContent;
-    button.textContent = '✓ Copied!';
-    button.style.color = '#10B981';
-    
-    setTimeout(() => {
-      button.textContent = originalText;
-      button.style.color = 'white';
-    }, 2000);
-  }).catch(() => {
-    alert('Email: ' + email);
-  });
-}
-
-// Close modal with Escape key
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    closeContactModal();
-  }
-});
-</script>
-
-<!-- counter section before the closing body tag -->
-<div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(93, 135, 161, 0.1); border-radius: 8px;">
-  <div style="font-family: 'Courier New', monospace; color: #5d87a1; font-size: 14px;">
-    <span id="visitor-counter">Loading...</span> visits since launch
+        justify-content: center;
+      ">×</button>
+    </div>
   </div>
-</div>
 
-<script>
-// Simple visit counter using sessionStorage (resets per browser session)
-function updateVisitCounter() {
-  // Get current count from sessionStorage or start at 1
-  let visitCount = sessionStorage.getItem('visitCount');
-  
-  if (!visitCount) {
-    // First visit in this session
-    visitCount = Math.floor(Math.random() * 1000) + 500; // Start with a random base number
-    sessionStorage.setItem('visitCount', visitCount);
-  } else {
-    // Increment for subsequent page loads in same session
-    visitCount = parseInt(visitCount) + 1;
-    sessionStorage.setItem('visitCount', visitCount);
-  }
-  
-  // Display the count with some formatting
-  document.getElementById('visitor-counter').textContent = visitCount.toLocaleString();
-}
+  <script>
+    // Typewriter Animation
+    const text = document.getElementById('animated-text');
 
-// Run counter when page loads
-document.addEventListener('DOMContentLoaded', updateVisitCounter);
-</script>
+    function startTypingAnimation() {
+      // Reset animation
+      text.style.width = '0';
+      text.style.animation = 'none';
+      void text.offsetWidth; // force reflow
+      text.style.animation = 'typing 3s steps(40, end) forwards, blink-caret 0.75s step-end infinite';
+    }
 
-  
-<!-- Cheers if you are borrowing some of this code -->
+    function cycleText() {
+      // Fade in
+      text.style.opacity = '1';
+      startTypingAnimation();
 
-<div style="text-align: center; font-family: 'Courier New', Courier, monospace; margin-top: 20px;">
-  <ul style="list-style: none; padding: 0; margin: 0;">
-    <li>Copyright default-to-safe.org 2025. All rights reserved.</li>
-  </ul>
-</div>
-  
+      // Fade out after 30s
+      setTimeout(() => {
+        text.style.opacity = '0';
+      }, 30000);
+    }
+
+    // Contact Modal Functions
+    function openContactModal() {
+      document.getElementById('contact-modal').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeContactModal() {
+      document.getElementById('contact-modal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function copyEmail() {
+      const email = "andrew.hendrickson@gmail.com";
+      
+      navigator.clipboard.writeText(email).then(() => {
+        const button = document.getElementById('email-button-text');
+        const originalText = button.textContent;
+        button.textContent = '✓ Copied!';
+        button.style.color = '#10B981';
+        
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.style.color = 'white';
+        }, 2000);
+      }).catch(() => {
+        alert('Email: ' + email);
+      });
+    }
+
+    // Visit Counter
+    function updateVisitCounter() {
+      let visitCount = sessionStorage.getItem('visitCount');
+      
+      if (!visitCount) {
+        visitCount = Math.floor(Math.random() * 1000) + 500;
+        sessionStorage.setItem('visitCount', visitCount);
+      } else {
+        visitCount = parseInt(visitCount) + 1;
+        sessionStorage.setItem('visitCount', visitCount);
+      }
+      
+      document.getElementById('visitor-counter').textContent = visitCount.toLocaleString();
+    }
+
+    // Event Listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      updateVisitCounter();
+      cycleText();
+      setInterval(cycleText, 60000);
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeContactModal();
+      }
+    });
+  </script>
 </body>
 </html>
