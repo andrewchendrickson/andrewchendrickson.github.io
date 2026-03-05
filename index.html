@@ -2,15 +2,21 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Andy Hendrickson</title>
 
 <link rel="icon" href="favicon.png" type="image/png">
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -44,7 +50,7 @@ transition:all .3s ease;
 
 .content:hover{
 transform:translateY(-2px);
-box-shadow:0 4px 6px -1px rgba(0,0,0,0.05),0 10px 15px -3px rgba(0,0,0,0.1);
+box-shadow:0 4px 6px rgba(0,0,0,0.1);
 }
 
 p{
@@ -70,23 +76,21 @@ color:#475569;
 margin-bottom:1rem;
 }
 
-li{margin-bottom:.5rem;}
-
-a{
-color:#2563eb;
-text-decoration:none;
-padding-bottom:1px;
-background-image:linear-gradient(#2563eb,#2563eb);
-background-size:0 1px;
-background-position:0 100%;
-background-repeat:no-repeat;
-transition:all .3s ease;
+li{
+margin-bottom:.5rem;
 }
 
-a:hover{
-color:#7c3aed;
-background-size:100% 1px;
-background-image:linear-gradient(#7c3aed,#7c3aed);
+.typewriter{
+font-family:monospace;
+overflow:hidden;
+white-space:nowrap;
+border-right:.15em solid orange;
+width:0;
+margin:2rem auto;
+text-align:center;
+opacity:1;
+font-size:1.2rem;
+color:#5d87a1;
 }
 
 .terminal-button-container{
@@ -95,7 +99,7 @@ margin:40px 0;
 }
 
 .terminal-button{
-font-family:"Courier New",Courier,monospace;
+font-family:"Courier New",monospace;
 display:inline-block;
 padding:10px 18px;
 border:1px solid #333;
@@ -111,18 +115,13 @@ color:#00ff9c;
 border-color:#111;
 }
 
-.typewriter{
-font-family:monospace;
-overflow:hidden;
-white-space:nowrap;
-border-right:.15em solid orange;
-width:0;
-margin:2rem auto;
-text-align:center;
-opacity:1;
-transition:opacity 2s ease;
-font-size:1.2rem;
-color:#5d87a1;
+a{
+color:#2563eb;
+text-decoration:none;
+}
+
+a:hover{
+color:#7c3aed;
 }
 
 @keyframes typing{
@@ -145,21 +144,8 @@ from{opacity:0;transform:translate(-50%,-60%)}
 to{opacity:1;transform:translate(-50%,-50%)}
 }
 
-@media(max-width:640px){
-
-body{padding:1rem}
-
-h1{font-size:2rem}
-
-.content{padding:1.5rem}
-
-p{font-size:1rem}
-
-.typewriter{font-size:1rem}
-
-}
-
 </style>
+
 </head>
 
 <body>
@@ -237,7 +223,90 @@ Copyright default-to-safe.org 2025. All rights reserved.
 
 </div>
 
+
+<!-- CONTACT MODAL -->
+
+<div id="contact-modal" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+z-index:2000;
+" onclick="closeContactModal()">
+
+<div style="
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:30px;
+border-radius:15px;
+max-width:400px;
+width:90%;
+animation:modalSlideIn .3s ease;
+" onclick="event.stopPropagation()">
+
+<h3 style="color:#5d87a1;margin-bottom:20px;text-align:center;">
+Let's Connect
+</h3>
+
+<a href="https://www.linkedin.com/in/andrewhendrickson/"
+target="_blank"
+rel="noopener noreferrer"
+style="display:block;padding:12px;background:#0A66C2;color:white;border-radius:8px;text-align:center;margin-bottom:10px;">
+Connect on LinkedIn
+</a>
+
+<button onclick="copyEmail()"
+style="width:100%;padding:12px;background:#34D399;border:none;color:white;border-radius:8px;cursor:pointer;">
+Copy Andy's Email Address
+</button>
+
+</div>
+
+</div>
+
+
 <script>
+
+const text=document.getElementById("animated-text");
+
+function startTyping(){
+text.style.width="0";
+text.style.animation="none";
+void text.offsetWidth;
+text.style.animation="typing 3s steps(40,end) forwards, blink-caret .75s step-end infinite";
+}
+
+function cycleText(){
+text.style.opacity="1";
+startTyping();
+setTimeout(()=>{text.style.opacity="0"},30000);
+}
+
+function openContactModal(){
+document.getElementById("contact-modal").style.display="block";
+document.body.style.overflow="hidden";
+}
+
+function closeContactModal(){
+document.getElementById("contact-modal").style.display="none";
+document.body.style.overflow="auto";
+}
+
+function copyEmail(){
+const email="andrew.hendrickson@gmail.com";
+
+navigator.clipboard.writeText(email).then(()=>{
+alert("Email copied to clipboard");
+}).catch(()=>{
+alert("Email: "+email);
+});
+}
 
 async function updateVisitCounter(){
 
@@ -249,19 +318,23 @@ try{
 const res=await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
 const data=await res.json();
 
-document.getElementById('visitor-counter').textContent=
+document.getElementById("visitor-counter").textContent=
 Number(data.value).toLocaleString();
 
 }catch(e){
 
-document.getElementById('visitor-counter').textContent="—";
+document.getElementById("visitor-counter").textContent="—";
 
 }
 
 }
 
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener("DOMContentLoaded",()=>{
+
 updateVisitCounter();
+cycleText();
+setInterval(cycleText,60000);
+
 });
 
 </script>
