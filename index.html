@@ -340,7 +340,29 @@ Copy Andy's Email Address
 
 </div>
 
+</div>
 
+<div id="easter-egg" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+color:#00ff7f;
+font-family:'Courier New',monospace;
+font-size:1.5rem;
+z-index:9999;
+justify-content:center;
+align-items:center;
+text-align:center;
+flex-direction:column;
+">
+    <pre id="terminal-output"></pre>
+</div>
+
+<script>
 <script>
 
 const text=document.getElementById("animated-text");
@@ -399,6 +421,97 @@ document.getElementById("visitor-counter").textContent="—";
 
 }
 
+// =====================================
+// Konami Code Easter Egg
+// =====================================
+
+const konamiCode = [
+    "ArrowUp",
+    "ArrowUp",
+    "ArrowDown",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowLeft",
+    "ArrowRight",
+    "b",
+    "a"
+];
+
+let konamiPosition = 0;
+
+document.addEventListener("keydown", (e) => {
+
+    const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+
+    if (key === konamiCode[konamiPosition]) {
+
+        konamiPosition++;
+
+        if (konamiPosition === konamiCode.length) {
+
+            activateAudioMode();
+
+            konamiPosition = 0;
+        }
+
+    } else {
+
+        konamiPosition = 0;
+
+    }
+
+});
+
+function activateAudioMode() {
+
+    const overlay = document.getElementById("easter-egg");
+    const terminal = document.getElementById("terminal-output");
+
+    overlay.style.display = "flex";
+
+    const lines = [
+        "user@linux ~ % sudo enable-audio-mode",
+        "",
+        "[ OK ] Initializing studio...",
+        "[ OK ] Loading tube preamps...",
+        "[ OK ] Calibrating reference monitors...",
+        "[ OK ] Connecting pedalboard...",
+        "[ OK ] Starting DMV Sound Lab...",
+        "",
+        "Redirecting..."
+    ];
+
+    terminal.textContent = "";
+
+    let i = 0;
+
+    function nextLine() {
+
+        if (i < lines.length) {
+
+            terminal.textContent += lines[i] + "\n";
+
+            i++;
+
+            setTimeout(nextLine, 350);
+
+        } else {
+
+            setTimeout(() => {
+
+                window.location.href = "https://dmvsoundlab.com";
+
+            }, 1000);
+
+        }
+
+    }
+
+    nextLine();
+
+}
+      
 document.addEventListener("DOMContentLoaded",()=>{
 
 updateVisitCounter();
