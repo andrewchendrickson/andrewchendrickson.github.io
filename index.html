@@ -499,9 +499,18 @@ function activateAudioMode() {
 
             setTimeout(() => {
 
-                window.location.href = "https://dmvsoundlab.com";
+    terminal.textContent += "\n";
+    terminal.textContent += "Opening hidden profile...\n\n";
+    terminal.textContent += "user@linux ~ % whois AndyH --audio\n\n";
+    terminal.textContent += "Redirecting to DMV Sound Lab...\n";
 
-            }, 1000);
+    setTimeout(() => {
+
+        window.location.href = "https://dmvsoundlab.com";
+
+    }, 2000);
+
+}, 1000);
 
         }
 
