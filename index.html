@@ -145,6 +145,64 @@ from{opacity:0;transform:translate(-50%,-60%)}
 to{opacity:1;transform:translate(-50%,-50%)}
 }
 
+.profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-header h1 {
+  font-size: 2.2rem;
+  color: #5d87a1;
+  margin-bottom: 0.75rem;
+}
+
+.profile-headline {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.75rem;
+}
+
+.profile-specialties {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.profile-role {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 1.25rem;
+}
+
+.profile-navigation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-navigation a {
+  padding: 0.4rem 0.85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #5d87a1;
+}
+
+.profile-navigation a:hover {
+  background: #5d87a1;
+  color: white;
+}
+
+.terminal-identity {
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-bottom: 0;
+}
+
 </style>
 
 </head>
@@ -161,7 +219,37 @@ donate to open source projects that matter to you.
 alt="Andy Hendrickson"
 style="width:120px;border-radius:50%;display:block;margin:0 auto 1rem;">
 
-<h2 style="text-align:center;">user@linux ~ % whois Andy Hendrickson</h2>
+
+<header class="profile-header">
+  <h1>Andrew C. Hendrickson</h1>
+
+  <p class="profile-headline">
+    Technology Leadership at the Intersection of
+    Engineering, Policy &amp; Innovation
+  </p>
+
+  <p class="profile-specialties">
+    Spectrum Policy · Artificial Intelligence ·
+    Critical Infrastructure · Cybersecurity
+  </p>
+
+  <p class="profile-role">
+    Chief, Office of Engineering and Technology<br>
+    Federal Communications Commission
+  </p>
+
+  <div class="profile-navigation">
+    <a href="#media">Media</a>
+    <a href="#speaking">Speaking</a>
+    <a href="#research">Research</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <p class="terminal-identity">
+    user@linux ~ % whois Andy Hendrickson
+  </p>
+</header>
+
 
 <div class="content">
 
