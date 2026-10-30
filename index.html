@@ -240,7 +240,15 @@ to{opacity:1;transform:translate(-50%,-50%)}
   margin-top: 0.5rem;
   font-weight: 600;
 }
+html {
+  scroll-behavior: smooth;
+}
 
+section,
+h2[id],
+div[id="contact"] {
+  scroll-margin-top: 1.5rem;
+}
 </style>
 
 </head>
@@ -368,7 +376,8 @@ style="width:120px;border-radius:50%;display:block;margin:0 auto 1rem;">
     </li>
 </ul>
 
-<h2>Public Appearances</h2>
+<!-- Public appearances -->
+<h2 id="speaking">Public Appearances</h2>
 <ul>
 
 
@@ -517,7 +526,8 @@ style="width:120px;border-radius:50%;display:block;margin:0 auto 1rem;">
         <em>Esri Oceans Summit</em>, Redlands, CA
     </li>
 </ul>
-<h2>Publications</h2>
+<!-- Publications -->
+<h2 id="research">Research &amp; Publications</h2>
 <ul>
 
 
@@ -560,7 +570,8 @@ style="width:120px;border-radius:50%;display:block;margin:0 auto 1rem;">
   </ul>
 </section>
       
-<div style="text-align:center;margin-top:20px;">
+<div id="contact"
+     style="text-align:center;margin-top:20px;">
 <button onclick="openContactModal()"
 style="background:linear-gradient(135deg,#5d87a1,#4a6b7a);color:white;border:none;padding:12px 24px;border-radius:25px;font-size:14px;font-weight:600;cursor:pointer;">
 💬 Quick Connect
