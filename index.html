@@ -1,838 +1,1441 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="Andrew C. Hendrickson — technology leadership, spectrum policy, artificial intelligence, cybersecurity, and critical infrastructure.">
 
-<title>Andrew C. Hendrickson</title>
-      <title>Andy Hendrickson</title>
+  <title>Andrew C. Hendrickson | Technology, Spectrum Policy &amp; AI</title>
 
-<link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="favicon.png" type="image/png">
 
-<style>
+  <style>
+    :root {
+      --primary: #5d87a1;
+      --primary-dark: #4a6b7a;
+      --text: #334155;
+      --text-secondary: #475569;
+      --muted: #64748b;
+      --background: #f8fafc;
+      --border: #e2e8f0;
+      --link: #2563eb;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-line-height:1.6;
-color:#334155;
-background:#f8fafc;
-padding:2rem 1rem;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.container{
-max-width:40rem;
-margin:0 auto;
-animation:fadeIn 1s ease-out;
-}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--background);
+      padding: 2rem 1rem;
+    }
 
-h1{
-font-size:2.5rem;
-font-weight:700;
-margin-bottom:2rem;
-color:#5d87a1;
-text-align:center;
-}
+    body.modal-open {
+      overflow: hidden;
+    }
 
-.content{
-background:white;
-padding:2rem;
-border-radius:1rem;
-box-shadow:0 1px 3px rgba(0,0,0,0.1);
-transition:all .3s ease;
-}
+    .container {
+      max-width: 42rem;
+      margin: 0 auto;
+      animation: fadeIn 0.8s ease-out;
+    }
 
-.content:hover{
-transform:translateY(-2px);
-box-shadow:0 4px 6px rgba(0,0,0,0.1);
-}
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--primary);
+      text-align: center;
+    }
 
-p{
-margin-bottom:1.5rem;
-font-size:1.125rem;
-color:#475569;
-}
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
 
-h2{
-font-size:1.5rem;
-margin-top:2rem;
-margin-bottom:1rem;
-color:#5d87a1;
-border-bottom:2px solid #e2e8f0;
-padding-bottom:.5rem;
-}
+    h3 {
+      font-size: 1.15rem;
+      color: var(--text);
+    }
 
-ul{
-margin-left:1rem;
-padding-left:1rem;
-list-style-type:disc;
-color:#475569;
-margin-bottom:1rem;
-}
+    p {
+      margin-bottom: 1.5rem;
+      font-size: 1.075rem;
+      color: var(--text-secondary);
+    }
 
-li{
-margin-bottom:.5rem;
-}
+    a {
+      color: var(--link);
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
 
-.typewriter{
-font-family:monospace;
-overflow:hidden;
-white-space:nowrap;
-border-right:.15em solid orange;
-width:0;
-margin:2rem auto;
-text-align:center;
-opacity:1;
-font-size:1.2rem;
-color:#5d87a1;
-}
+    a:hover {
+      color: #7c3aed;
+    }
 
-.terminal-button-container{
-text-align:center;
-margin:40px 0;
-}
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid #2563eb;
+      outline-offset: 3px;
+    }
 
-.terminal-button{
-font-family:"Courier New",monospace;
-display:inline-block;
-padding:10px 18px;
-border:1px solid #333;
-border-radius:4px;
-background:#f6f8fa;
-color:#111;
-text-decoration:none;
-}
+    ul {
+      margin-left: 1rem;
+      padding-left: 1rem;
+      list-style-type: disc;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
 
-.terminal-button:hover{
-background:#111;
-color:#00ff9c;
-border-color:#111;
-}
+    li {
+      margin-bottom: 0.75rem;
+      overflow-wrap: anywhere;
+    }
 
-a{
-color:#2563eb;
-text-decoration:none;
-}
+    section,
+    h2[id],
+    #contact {
+      scroll-margin-top: 1.5rem;
+    }
 
-a:hover{
-color:#7c3aed;
-}
+    /* Open-source message */
 
-@keyframes typing{
-from{width:0}
-to{width:100%}
-}
+    .typewriter {
+      font-family: monospace;
+      text-align: center;
+      color: var(--primary);
+      font-size: clamp(0.85rem, 2.7vw, 1.15rem);
+      margin: 0 auto 1.75rem;
+      min-height: 1.7em;
+      overflow-wrap: anywhere;
+    }
 
-@keyframes blink-caret{
-from,to{border-color:transparent}
-50%{border-color:orange}
-}
+    .typewriter .typed-text {
+      display: inline;
+    }
 
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px)}
-to{opacity:1;transform:translateY(0)}
-}
+    .typewriter .cursor {
+      display: inline-block;
+      width: 0.12em;
+      height: 1em;
+      margin-left: 2px;
+      background: orange;
+      vertical-align: -0.15em;
+      animation: blink-caret 0.75s step-end infinite;
+    }
 
-@keyframes modalSlideIn{
-from{opacity:0;transform:translate(-50%,-60%)}
-to{opacity:1;transform:translate(-50%,-50%)}
-}
+    .profile-photo {
+      display: block;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+    }
 
-.profile-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
+    /* Header */
 
-.profile-header h1 {
-  font-size: 2.2rem;
-  color: #5d87a1;
-  margin-bottom: 0.75rem;
-}
+    .profile-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
 
-.profile-headline {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #334155;
-  margin-bottom: 0.75rem;
-}
+    .profile-header h1 {
+      margin-bottom: 0.75rem;
+    }
 
-.profile-specialties {
-  font-size: 0.9rem;
-  color: #64748b;
-  margin-bottom: 1rem;
-}
+    .profile-headline {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
 
-.profile-role {
-  font-size: 0.95rem;
-  color: #475569;
-  margin-bottom: 1.25rem;
-}
+    .profile-specialties {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
 
-.profile-navigation {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
+    .profile-role {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+    }
 
-.profile-navigation a {
-  padding: 0.4rem 0.85rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  color: #5d87a1;
-}
+    .profile-navigation {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
 
-.profile-navigation a:hover {
-  background: #5d87a1;
-  color: white;
-}
+    .profile-navigation a {
+      display: inline-block;
+      padding: 0.4rem 0.85rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--primary);
+      transition: background 0.2s, color 0.2s;
+    }
 
-.terminal-identity {
-  font-family: monospace;
-  font-size: 0.95rem;
-  color: #64748b;
-  margin-bottom: 0;
-}
+    .profile-navigation a:hover {
+      background: var(--primary);
+      color: white;
+    }
 
-.featured-media {
-  background: #f1f5f9;
-  border-left: 4px solid #5d87a1;
-  padding: 1.25rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
-}
+    .terminal-identity {
+      font-family: "Courier New", monospace;
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 0;
+      overflow-wrap: anywhere;
+    }
 
-.featured-label {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #64748b;
-  margin-bottom: 0.5rem;
-}
+    /* Main content */
 
-.featured-media h3 {
-  color: #334155;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
+    .content {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
 
-.featured-media p {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
+    .content > section:first-child h2 {
+      margin-top: 0;
+    }
 
-.featured-description {
-  color: #64748b;
-}
+    /* Featured interview */
 
-.featured-link {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-weight: 600;
-}
-html {
-  scroll-behavior: smooth;
-}
+    .featured-media {
+      background: #f1f5f9;
+      border-left: 4px solid var(--primary);
+      padding: 1.25rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
 
-section,
-h2[id],
-div[id="contact"] {
-  scroll-margin-top: 1.5rem;
-}
+    .featured-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
 
-.research-subheading {
-  font-size: 1.1rem;
-  color: #475569;
-  margin-top: 1.25rem;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-}
+    .featured-media h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
 
-.older-engagements {
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
-}
+    .featured-media p {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
 
-.older-engagements summary {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #5d87a1;
-  cursor: pointer;
-  padding: 0.75rem 0;
-  border-bottom: 2px solid #e2e8f0;
-}
+    .featured-description {
+      color: var(--muted);
+    }
 
-.older-engagements summary:hover {
-  color: #2563eb;
-}
+    .featured-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
 
-.older-engagements ul {
-  margin-top: 1rem;
-}
+    /* Research */
 
-.site-disclaimer {
-  font-size: 0.75rem;
-  line-height: 1.5;
-  color: #94a3b8;
-  max-width: 34rem;
-  margin: 1rem auto;
-  text-align: center;
-}
-</style>
+    .research-subheading {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-top: 1.25rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
 
+    /* Collapsible speaking history */
+
+    .older-engagements {
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .older-engagements summary {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      padding: 0.75rem 0;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .older-engagements summary:hover {
+      color: var(--link);
+    }
+
+    .older-engagements ul {
+      margin-top: 1rem;
+    }
+
+    /* Contact */
+
+    .contact-section {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .contact-button {
+      background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+      );
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .contact-button:hover {
+      filter: brightness(0.92);
+    }
+
+    /* Terminal link */
+
+    .terminal-button-container {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .terminal-button {
+      font-family: "Courier New", monospace;
+      display: inline-block;
+      padding: 10px 18px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background: #f6f8fa;
+      color: #111;
+      text-decoration: none;
+    }
+
+    .terminal-button:hover {
+      background: #111;
+      color: #00ff9c;
+      border-color: #111;
+    }
+
+    /* Footer */
+
+    .site-footer {
+      text-align: center;
+      font-family: "Courier New", monospace;
+      margin-top: 1rem;
+    }
+
+    .copyright {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .site-disclaimer {
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 0.75rem;
+      line-height: 1.5;
+      color: #64748b;
+      max-width: 34rem;
+      margin: 1rem auto;
+      text-align: center;
+    }
+
+    /* Contact modal */
+
+    .contact-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .contact-modal.is-open {
+      display: flex;
+    }
+
+    .contact-modal-panel {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 400px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: modalSlideIn 0.3s ease;
+    }
+
+    .contact-modal-panel h3 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .modal-close {
+      display: block;
+      margin-left: auto;
+      margin-bottom: 0.75rem;
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .linkedin-button {
+      display: block;
+      padding: 12px;
+      background: #0a66c2;
+      color: white;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .linkedin-button:hover {
+      color: white;
+      background: #084f96;
+    }
+
+    .copy-email-button {
+      width: 100%;
+      padding: 12px;
+      background: #34d399;
+      border: none;
+      color: #103b2a;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .copy-status {
+      font-size: 0.85rem;
+      text-align: center;
+      margin: 0.75rem 0 0;
+      min-height: 1.5em;
+    }
+
+    /* Konami Code Easter Egg */
+
+    .easter-egg {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #000;
+      color: #00ff7f;
+      font-family: "Courier New", monospace;
+      font-size: clamp(0.85rem, 3vw, 1.5rem);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    .easter-egg.is-active {
+      display: flex;
+    }
+
+    .easter-egg pre {
+      font: inherit;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      max-width: 100%;
+    }
+
+    /* Animations */
+
+    @keyframes blink-caret {
+      from, to {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile layout */
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.25rem 0.75rem;
+      }
+
+      .content {
+        padding: 1.35rem;
+      }
+
+      .profile-header h1 {
+        font-size: 1.9rem;
+      }
+
+      .profile-headline {
+        font-size: 1.05rem;
+      }
+
+      .profile-navigation {
+        gap: 0.5rem;
+      }
+
+      .profile-navigation a {
+        padding: 0.35rem 0.7rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      .older-engagements summary {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+  <div class="container">
 
-<h3 id="animated-text" class="typewriter">
-donate to open source projects that matter to you.
-</h3>
+    <!-- Open-source message -->
 
-<img src="favicon.png"
-alt="Andy Hendrickson"
-style="width:120px;border-radius:50%;display:block;margin:0 auto 1rem;">
+    <div id="animated-text"
+         class="typewriter"
+         aria-label="donate to open source projects that matter to you.">
+      <span id="typed-text"
+            class="typed-text"
+            aria-hidden="true"></span><span class="cursor"
+            aria-hidden="true"></span>
+    </div>
 
+    <!-- Profile photo -->
 
-<header class="profile-header">
-  <h1>Andrew C. Hendrickson</h1>
+    <img
+      src="favicon.png"
+      alt="Andy Hendrickson"
+      class="profile-photo"
+      width="120"
+      height="120"
+    >
 
-  <p class="profile-headline">
-    Technology Leadership at the Intersection of
-    Engineering, Policy &amp; Innovation
-  </p>
+    <!-- Professional header -->
 
-  <p class="profile-specialties">
-    Spectrum Policy · Artificial Intelligence ·
-    Critical Infrastructure · Cybersecurity
-  </p>
+    <header class="profile-header">
 
-  <p class="profile-role">
-    Chief, Office of Engineering and Technology<br>
-    Federal Communications Commission
-  </p>
+      <h1>Andrew C. Hendrickson</h1>
 
-  <div class="profile-navigation">
-    <a href="#media">Media</a>
-    <a href="#speaking">Speaking</a>
-    <a href="#research">Research</a>
-    <a href="#contact">Contact</a>
+      <p class="profile-headline">
+        Technology Leadership at the Intersection of
+        Engineering, Policy &amp; Innovation
+      </p>
+
+      <p class="profile-specialties">
+        Spectrum Policy · Artificial Intelligence ·
+        Critical Infrastructure · Cybersecurity
+      </p>
+
+      <p class="profile-role">
+        Chief, Office of Engineering and Technology<br>
+        Federal Communications Commission
+      </p>
+
+      <nav class="profile-navigation"
+           aria-label="Main navigation">
+        <a href="#media">Media</a>
+        <a href="#speaking">Speaking</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <p class="terminal-identity">
+        user@linux ~ % whois Andy Hendrickson
+      </p>
+
+    </header>
+
+    <!-- Main content -->
+
+    <main class="content">
+
+      <!-- Biography -->
+
+      <section id="about">
+
+        <h2>About</h2>
+
+        <p>
+          I serve as Chief of the Federal Communications
+          Commission's Office of Engineering and Technology
+          (OET), where I advise on spectrum policy, national
+          security matters, emerging technologies, equipment
+          authorization, experimental licensing, and the
+          technical frameworks shaping America's
+          communications infrastructure.
+        </p>
+
+        <p>
+          Previously, I served as Chief Technology Officer
+          for the FCC's Enforcement Bureau, leading technical
+          initiatives involving cybersecurity, national
+          security, communications networks, and critical
+          infrastructure. Before joining the FCC, I spent
+          more than two decades in the telecommunications
+          industry, including leadership roles at Verizon
+          supporting 5G deployment and cloud infrastructure.
+          My experience spans wireless communications,
+          artificial intelligence, cloud computing,
+          software-defined networking, and cybersecurity.
+        </p>
+
+        <p>
+          I remain active in open-source communities,
+          technical research, industry collaboration,
+          academic advising, lecturing, and public speaking,
+          with a particular interest in the intersection of
+          emerging technologies, communications policy,
+          and national security. Outside of work, I enjoy
+          audio engineering and playing music.
+        </p>
+
+      </section>
+
+      <!-- Media and interviews -->
+
+      <section id="media">
+
+        <h2>Media &amp; Interviews</h2>
+
+        <article class="featured-media">
+
+          <span class="featured-label">
+            FEATURED INTERVIEW · OCTOBER 28, 2026
+          </span>
+
+          <h3>Lawfare Daily</h3>
+
+          <p>
+            FCC's Bad Labs Rulemaking with FCC's
+            Andy Hendrickson and Alice Jou
+          </p>
+
+          <p class="featured-description">
+            A discussion of FCC equipment authorization,
+            national security, and regulatory policy.
+          </p>
+
+          <a
+            href="https://www.youtube.com/watch?v=43yr5nCamGQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="featured-link">
+            Watch Interview &rarr;
+          </a>
+
+        </article>
+
+        <ul>
+          <li>
+            <strong>July 2026</strong> – Guest,
+            <a
+              href="https://www.youtube.com/watch?v=eBLdLnohuLM"
+              target="_blank"
+              rel="noopener noreferrer">
+              FCC - Office of Engineering &amp; Technology
+              Chief, Andy Hendrickson with Andy Clegg
+            </a>,
+            <em>Setting the Standard</em>
+            (Podcast Episode 26.05),
+            Wireless Innovation Forum.
+          </li>
+        </ul>
+
+      </section>
+
+      <!-- Public appearances -->
+
+      <section id="speaking">
+
+        <h2>Public Appearances</h2>
+
+        <ul>
+          <li>
+            <strong>
+              November 12, 2026, 2:40–3:10 PM MST
+            </strong>
+            – Speaker,
+            <a
+              href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/program/schedule/?search=hendrickson"
+              target="_blank"
+              rel="noopener noreferrer">
+              From Black-Box to Auditable AI-Grid:
+              A Deterministic Governance Layer with Hybrid Cloud
+            </a>,
+            <em>KubeCon + CloudNativeCon North America</em>,
+            Salt Palace Convention Center,
+            Grand Ballroom H (Level 1),
+            Salt Lake City, UT.
+          </li>
+        </ul>
+
+      </section>
+
+      <!-- FCC presentations -->
+
+      <section id="fcc-presentations">
+
+        <h2>FCC Open Meeting Presentations</h2>
+
+        <ul>
+
+          <li>
+            <strong>October 29, 2026</strong> – Presenter,
+            <a
+              href="https://youtu.be/Tv-4Ck0DRFE?t=2416"
+              target="_blank"
+              rel="noopener noreferrer">
+              Prohibiting Test Labs and Certification Bodies
+              in Non-Reciprocal Countries
+            </a>
+            – Presented the FCC's proposal to strengthen
+            equipment authorization security by restricting
+            testing, certification, and accreditation
+            activities to the United States and reciprocal
+            economies, with a transition period ending
+            December 1, 2028.
+            (ET Docket No. 24-136)
+          </li>
+
+          <li>
+            <strong>September 30, 2026</strong> – Presenter,
+            <a
+              href="https://youtu.be/pc3FXO6NvBY?t=1704"
+              target="_blank"
+              rel="noopener noreferrer">
+              Unleashing the Power of Unlicensed UWB Devices
+            </a>
+            – Presented the FCC's proposal to modernize
+            Ultra-Wideband (UWB) regulations by updating
+            technical requirements, removing outdated
+            restrictions, and enabling emerging applications
+            such as AI-enabled sensing while protecting
+            incumbent services.
+            (ET Docket No. 26-245)
+          </li>
+
+          <li>
+            <strong>August 6, 2026</strong> – Presenter,
+            <a
+              href="https://www.fcc.gov/August2026"
+              target="_blank"
+              rel="noopener noreferrer">
+              Opening Up More Than 200 Megahertz of
+              Unlicensed Spectrum for D2D Offerings
+            </a>
+            (ET Docket No. 26-169)
+          </li>
+
+          <li>
+            <strong>July 22, 2026</strong> – Presenter,
+            <a
+              href="https://www.fcc.gov/July2026"
+              target="_blank"
+              rel="noopener noreferrer">
+              Strengthening Rules Governing Dangerous Gear
+            </a>
+            (ET Docket No. 21-232)
+          </li>
+
+          <li>
+            <strong>April 2026</strong> – Presenter,
+            <a
+              href="https://www.fcc.gov/April2026"
+              target="_blank"
+              rel="noopener noreferrer">
+              Safeguarding the Equipment Authorization
+              Process from Bad Labs
+            </a>
+            (ET Docket No. 24-136)
+          </li>
+
+          <li>
+            <strong>January 29, 2026</strong> – Presenter,
+            <a
+              href="https://www.fcc.gov/January2026"
+              target="_blank"
+              rel="noopener noreferrer">
+              Expanding Unlicensed Operations in the
+              6 GHz Band
+            </a>
+            (ET Docket No. 18-295)
+          </li>
+
+          <li>
+            <strong>December 18, 2025</strong> – Presenter,
+            <a
+              href="https://www.fcc.gov/December2025"
+              target="_blank"
+              rel="noopener noreferrer">
+              Delete, Delete, Delete
+              (eliminating ~35 obsolete, outdated, and
+              unnecessary rules from Parts 2, 15, and 18)
+            </a>
+            (GN Docket No. 25-133)
+          </li>
+
+          <li>
+            <strong>October 28, 2025</strong> – Presenter,
+            <a
+              href="https://www.fcc.gov/October2025"
+              target="_blank"
+              rel="noopener noreferrer">
+              Protecting Against National Security Threats
+              through the Equipment Authorization Program
+            </a>
+            (ET Docket No. 21-232)
+          </li>
+
+        </ul>
+
+      </section>
+
+      <!-- Past appearances -->
+
+      <section id="past-appearances">
+
+        <h2>Past Appearances</h2>
+
+        <ul>
+
+          <li>
+            <strong>August 7, 2026</strong> – Speaker,
+            <em>Experiment First: Interfere Never</em>,
+            Practical Guidance for RF Researchers,
+            <em>DEF CON 34 – RF Village</em>,
+            Creator Stage 6, Las Vegas, NV.
+          </li>
+
+          <li>
+            <strong>June 19, 2026</strong> – Speaker,
+            Session 2: Global Policy Models for
+            Direct-to-Device Connectivity –
+            A United States Use Case,
+            <em>EU D2D Policy Forum</em>,
+            Brussels, Belgium.
+          </li>
+
+          <li>
+            <strong>April 8, 2026</strong> – Guest Lecture,
+            Artificial Intelligence in the
+            RAN/Telecommunications Industry,
+            <em>
+              College of Engineering –
+              Virginia Commonwealth University
+            </em>,
+            Richmond, VA.
+          </li>
+
+          <li>
+            <strong>October 31, 2025</strong> – Speaker,
+            Balancing exclusive licensing, sharing regimes,
+            and unlicensed spectrum for federal and
+            commercial users,
+            <em>
+              14th Annual Americas Spectrum
+              Management Conference
+            </em>,
+            Washington, DC.
+          </li>
+
+          <li>
+            <strong>April 28, 2025</strong> – Guest Lecture,
+            Artificial Intelligence in the
+            Telecommunications Industry,
+            <em>
+              College of Engineering –
+              Virginia Commonwealth University
+            </em>,
+            Richmond, VA.
+          </li>
+
+        </ul>
+
+      </section>
+
+      <!-- Earlier speaking engagements -->
+
+      <details class="older-engagements">
+
+        <summary>
+          Selected Prior Speaking Engagements
+        </summary>
+
+        <ul>
+
+          <li>
+            <strong>May 11, 2017</strong> – Speaker,
+            <a
+              href="https://www.openstack.org/videos/summits/boston-2017/verizon-case-study-the-illusion-of-infinite-capacity"
+              target="_blank"
+              rel="noopener noreferrer">
+              Verizon Case Study:
+              The Illusion of Infinite Capacity
+            </a>,
+            <em>OpenStack Summit Boston</em>,
+            Boston, MA.
+          </li>
+
+          <li>
+            <strong>October 25–28, 2016</strong> – Speaker,
+            <a
+              href="https://www.ithome.com.tw/video/112504"
+              target="_blank"
+              rel="noopener noreferrer">
+              OpenStack Management at Hyperscale –
+              A Verizon Case Study
+            </a>,
+            <em>OpenStack Summit Barcelona</em>,
+            Barcelona, Spain.
+          </li>
+
+          <li>
+            <strong>November 7–8, 2012</strong> – Speaker,
+            <a
+              href="https://www.youtube.com/watch?v=E5_iGUFPcfU"
+              target="_blank"
+              rel="noopener noreferrer">
+              ArcGIS Online for Organizations
+            </a>,
+            <em>Esri Oceans Summit</em>,
+            Redlands, CA.
+          </li>
+
+        </ul>
+
+      </details>
+
+      <!-- Research and publications -->
+
+      <section id="research">
+
+        <h2>Research &amp; Publications</h2>
+
+        <h3 class="research-subheading">
+          Manuscripts Under Review
+        </h3>
+
+        <ul>
+
+          <li>
+            <strong>2027 (Under Review)</strong> –
+            Chrysanthos Chrysanthou, Chris Gao, and
+            Andrew C. Hendrickson,
+            "Geospatial Digital Twin Architecture for
+            Accurate Urban and Suburban Propagation
+            Predictions,"
+            <em>
+              21st European Conference on Antennas
+              and Propagation (EuCAP 2027)
+            </em>.
+          </li>
+
+          <li>
+            <strong>2027 (Under Review)</strong> –
+            Andrew C. Hendrickson and Fatih E. Nar,
+            "AI-RAN with Deterministic Patterns and
+            Practices: Architecture, Governance, and
+            a Maturity Model for Critical
+            Communications Infrastructure,"
+            <em>
+              International Conference on Computing,
+              Networking and Communications
+              (ICNC 2027)
+            </em>,
+            AI &amp; Applications Track.
+          </li>
+
+        </ul>
+
+      </section>
+
+      <!-- Recommended resources -->
+
+      <section id="recommended-resources">
+
+        <h2>Recommended Resources</h2>
+
+        <ul>
+          <li>
+            <a
+              href="https://natsecnoir.com/"
+              target="_blank"
+              rel="noopener noreferrer">
+              NatSec Noir
+            </a>
+            – Independent analysis and commentary on
+            technology, national security, and
+            regulatory policy.
+          </li>
+        </ul>
+
+      </section>
+
+      <!-- Contact button -->
+
+      <section id="contact" class="contact-section">
+
+        <button
+          type="button"
+          class="contact-button"
+          onclick="openContactModal()">
+          💬 Quick Connect
+        </button>
+
+      </section>
+
+    </main>
+
+    <!-- Terminal profile link -->
+
+    <div class="terminal-button-container">
+
+      <a
+        class="terminal-button"
+        href="https://andrewchendrickson.github.io/who-is-AndyH-2026.png"
+        target="_blank"
+        rel="noopener noreferrer">
+        &gt; whois AndyH (2026)
+      </a>
+
+    </div>
+
+    <!-- Footer -->
+
+    <footer class="site-footer">
+
+      <p class="copyright">
+        Copyright default-to-safe.org 2025.
+        All rights reserved.
+      </p>
+
+      <p class="site-disclaimer">
+        This is a personal website and is not an official
+        website of the Federal Communications Commission.
+        Content and views expressed here are personal
+        and do not necessarily represent the views or
+        positions of the FCC or the United States Government.
+      </p>
+
+    </footer>
+
+  </div>
+  <!-- End .container -->
+
+  <!-- Contact modal -->
+
+  <div
+    id="contact-modal"
+    class="contact-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="contact-modal-title"
+    aria-hidden="true"
+    onclick="closeContactModal(event)">
+
+    <div
+      class="contact-modal-panel"
+      onclick="event.stopPropagation()">
+
+      <button
+        type="button"
+        class="modal-close"
+        aria-label="Close contact dialog"
+        onclick="closeContactModal()">
+        &times;
+      </button>
+
+      <h3 id="contact-modal-title">
+        Let's Connect
+      </h3>
+
+      <a
+        href="https://www.linkedin.com/in/andrewhendrickson/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="linkedin-button">
+        Connect on LinkedIn
+      </a>
+
+      <button
+        type="button"
+        class="copy-email-button"
+        onclick="copyEmail()">
+        Copy Andy's Email Address
+      </button>
+
+      <p
+        id="copy-status"
+        class="copy-status"
+        role="status"
+        aria-live="polite">
+      </p>
+
+    </div>
+
   </div>
 
-  <p class="terminal-identity">
-    user@linux ~ % whois Andy Hendrickson
-  </p>
-</header>
+  <!-- Konami Code Easter Egg -->
 
+  <div
+    id="easter-egg"
+    class="easter-egg"
+    aria-hidden="true">
 
-<div class="content">
-
-
-<section id="about">
-  <h2>About</h2>
-
-  <p>
-    I serve as Chief of the Federal Communications
-    Commission's Office of Engineering and Technology
-    (OET), where I advise on spectrum policy, National Security matters, emerging
-    technologies, equipment authorization, experimental licensing, and the
-    technical frameworks shaping America's
-    communications infrastructure.
-  </p>
-
-  <p>
-    Previously, I served as Chief Technology Officer
-    for the FCC's Enforcement Bureau, leading technical
-    initiatives involving cybersecurity, national
-    security, communications networks, and critical
-    infrastructure. Before joining the FCC, I spent
-    more than two decades in the telecommunications
-    industry, including leadership roles at Verizon
-    supporting 5G deployment and cloud infrastructure.
-    My experience spans wireless communications,
-    artificial intelligence, cloud computing,
-    software-defined networking, and cybersecurity.
-  </p>
-
-  <p>
-    I remain active in open source cummunities, technical research, industry
-    collaboration, academic advising, lecturing, and public speaking, with a
-    particular interest in the intersection of
-    emerging technologies, communications policy,
-    and national security. Outside of work, I enjoy
-    audio engineering and playing music.
-  </p>
-</section>
-
-<h2 id="media">Media &amp; Interviews</h2>
-
-<div class="featured-media">
-  <span class="featured-label">
-    FEATURED INTERVIEW · OCTOBER 28, 2026
-  </span>
-
-  <h3>Lawfare Daily</h3>
-
-  <p>
-    FCC's Bad Labs Rulemaking with FCC's
-    Andy Hendrickson and Alice Jou
-  </p>
-
-  <p class="featured-description">
-    A discussion of FCC equipment authorization,
-    national security, and regulatory policy.
-  </p>
-
-  <a href="https://www.youtube.com/watch?v=43yr5nCamGQ"
-     target="_blank"
-     rel="noopener noreferrer"
-     class="featured-link">
-    Watch Interview →
-  </a>
-</div>
-
-<ul> 
-
-    <li>
-        <strong>July 2026</strong> – Guest,
-        <a href="https://www.youtube.com/watch?v=eBLdLnohuLM"
-           target="_blank"
-           rel="noopener noreferrer">
-           FCC - Office of Engineering & Technology Chief, Andy Hendrickson with Andy Clegg
-        </a>,
-        <em>Setting the Standard</em> (Podcast Episode 26.05), Wireless Innovation Forum
-    </li>
-</ul>
-
-<!-- Public appearances -->
-<h2 id="speaking">Public Appearances</h2>
-<ul>
-
-
-<li>
-  <strong>November 12, 2026, 2:40–3:10 PM MST</strong>
-  – Speaker,
-  <a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/program/schedule/?search=hendrickson"
-     target="_blank"
-     rel="noopener noreferrer">
-    From Black-Box to Auditable AI-Grid:
-    A Deterministic Governance Layer with Hybrid Cloud
-  </a>,
-  <em>KubeCon + CloudNativeCon North America</em>,
-  Salt Palace Convention Center,
-  Grand Ballroom H (Level 1),
-  Salt Lake City, UT.
-</li>
-
-</ul>
-
-<h2>FCC Open Meeting Presentations</h2>
-
-<ul>
-<li>
-  <strong>October 29, 2026</strong> – Presenter,
-  <a href="https://youtu.be/Tv-4Ck0DRFE?t=2416"
-     target="_blank"
-     rel="noopener noreferrer">
-    Prohibiting Test Labs and Certification Bodies in
-    Non-Reciprocal Countries
-  </a> – Presented the FCC's proposal to strengthen
-  equipment authorization security by restricting
-  testing, certification, and accreditation activities
-  to the United States and reciprocal economies,
-  with a transition period ending December 1, 2028.
-  (ET Docket No. 24-136)
-</li>
-<li>
-  <strong>September 30, 2026</strong> – Presenter,
-  <a href="https://youtu.be/pc3FXO6NvBY?t=1704"
-     target="_blank"
-     rel="noopener noreferrer">
-    Unleashing the Power of Unlicensed UWB Devices
-  </a> – Presented the FCC's proposal to modernize
-  Ultra-Wideband (UWB) regulations by updating technical
-  requirements, removing outdated restrictions, and
-  enabling emerging applications such as AI-enabled
-  sensing while protecting incumbent services.
-  (ET Docket No. 26-245)
-</li>
-<li>
-    <strong>August 6, 2026</strong> – Presenter,
-    <a href="https://www.fcc.gov/August2026"
-       target="_blank"
-       rel="noopener noreferrer">
-       Opening Up More Than 200 Megahertz of Unlicensed Spectrum for D2D Offerings
-    </a>
-    (ET Docket No. 26-169)
-</li>
-
-<li>
-    <strong>July 22, 2026</strong> – Presenter,
-    <a href="https://www.fcc.gov/July2026"
-       target="_blank"
-       rel="noopener noreferrer">
-       Strengthening Rules Governing Dangerous Gear
-    </a>
-    (ET Docket No. 21-232)
-</li>
-    <li>
-        <strong>April 2026</strong> – Presenter,
-        <a href="https://www.fcc.gov/April2026"
-           target="_blank"
-           rel="noopener noreferrer">
-           Safeguarding the Equipment Authorization Process from Bad Labs
-        </a>
-        (ET Docket No. 24-136)
-    </li>
-
-    <li>
-        <strong>January 29, 2026</strong> – Presenter,
-        <a href="https://www.fcc.gov/January2026"
-           target="_blank"
-           rel="noopener noreferrer">
-           Expanding Unlicensed Operations in the 6 GHz Band
-        </a>
-        (ET Docket No. 18-295)
-    </li>
-
-    <li>
-        <strong>December 18, 2025</strong> – Presenter,
-        <a href="https://www.fcc.gov/December2025"
-           target="_blank"
-           rel="noopener noreferrer">
-           Delete, Delete, Delete (eliminating ~35 obsolete, outdated, and unnecessary rules from Parts 2, 15, and 18)
-        </a>
-        (GN Docket No. 25-133)
-    </li>
-
-    <li>
-        <strong>October 28, 2025</strong> – Presenter,
-        <a href="https://www.fcc.gov/October2025"
-           target="_blank"
-           rel="noopener noreferrer">
-           Protecting Against National Security Threats through the Equipment Authorization Program
-        </a>
-        (ET Docket No. 21-232)
-    </li>
-</ul>
-<h2>Past Appearances</h2>
-      <ul>
-      <li><strong>August 7, 2026</strong> – Speaker, <em>Experiment First: Interfere Never</em>, Practical Guidance for RF Researchers, <em>DEF CON 34 – RF Village,</em> Creator Stage 6, Las Vegas, NV</li>         
-      <li><strong>June 19, 2026</strong> – Speaker, Session 2: Global Policy Models for Direct-to-Device Connectivity – A United States Use Case, <em>EU D2D Policy Forum,</em> Brussels, Belgium</li>
-      <li><strong>April 8, 2026</strong> – Guest Lecture, Artificial Intelligence in the RAN/Telecommunications Industry, <em>College of Engineering - Virginia Commonwealth University,</em> Richmond, VA</li>
-      <li><strong>October 31, 2025</strong> – Speaker, Balancing exclusive licensing, sharing regimes, and unlicensed spectrum for federal and commercial users. <em>14th Annual Americas Spectrum Management Conference, </em>Washington, DC</li>
-      <li><strong>April 28, 2025</strong> – Guest Lecture, Artificial Intelligence in the Telecommunications Industry. <em>College of Engineering - Virginia Commonwealth University,</em> Richmond, VA</li>
-      </ul>
-
-<details class="older-engagements">
-  <summary>
-    Selected Prior Speaking Engagements
-  </summary>
-
-  <ul>
-</details>
-    <li>
-        <strong>May 11, 2017</strong> – Speaker,
-        <a href="https://www.openstack.org/videos/summits/boston-2017/verizon-case-study-the-illusion-of-infinite-capacity"
-           target="_blank"
-           rel="noopener noreferrer">
-           Verizon Case Study: The Illusion of Infinite Capacity
-        </a>,
-        <em>OpenStack Summit Boston</em>, Boston, MA
-    </li>
-    <li>
-        <strong>October 25–28, 2016</strong> – Speaker,
-        <a href="https://www.ithome.com.tw/video/112504"
-           target="_blank"
-           rel="noopener noreferrer">
-           OpenStack Management at Hyperscale – A Verizon Case Study
-        </a>,
-        <em>OpenStack Summit Barcelona</em>, Barcelona, Spain
-    </li>
-    <li>
-        <strong>November 7–8, 2012</strong> – Speaker,
-        <a href="https://www.youtube.com/watch?v=E5_iGUFPcfU"
-           target="_blank"
-           rel="noopener noreferrer">
-           ArcGIS Online for Organizations
-        </a>,
-        <em>Esri Oceans Summit</em>, Redlands, CA
-    </li>
-</ul>
-<!-- Publications -->
-<h2 id="research">Research &amp; Publications</h2>
-<h3 class="research-subheading">
-  Manuscripts Under Review
-</h3>
-<ul>
-
-
-<li>
-  <strong>2027 (Under Review)</strong> –
-  Chrysanthos Chrysanthou, Chris Gao, and
-  Andrew C. Hendrickson,
-  "Geospatial Digital Twin Architecture for Accurate
-  Urban and Suburban Propagation Predictions,"
-  <em>21st European Conference on Antennas and
-  Propagation (EuCAP 2027)</em>.
-</li>
-
-
-<li>
-  <strong>2027 (Under Review)</strong> –
-  Andrew C. Hendrickson and Fatih E. Nar,
-  "AI-RAN with Deterministic Patterns and Practices:
-  Architecture, Governance, and a Maturity Model
-  for Critical Communications Infrastructure,"
-  <em>International Conference on Computing,
-  Networking and Communications (ICNC 2027)</em>,
-  AI &amp; Applications Track.
-</li>
-     
-      
-</ul>
-
-<section id="recommended-resources">
-  <h2>Recommended Resources</h2>
-  <ul>
-    <li>
-      <a href="https://natsecnoir.com/"
-         target="_blank"
-         rel="noopener noreferrer">
-        NatSec Noir
-      </a> – Independent analysis and commentary on
-      technology, national security, and regulatory policy.
-    </li>
-  </ul>
-</section>
-      
-<div id="contact"
-     style="text-align:center;margin-top:20px;">
-<button onclick="openContactModal()"
-style="background:linear-gradient(135deg,#5d87a1,#4a6b7a);color:white;border:none;padding:12px 24px;border-radius:25px;font-size:14px;font-weight:600;cursor:pointer;">
-💬 Quick Connect
-</button>
-</div>
-
-</div>
-
-</div>
-</div>
-
-<div class="terminal-button-container">
-<a class="terminal-button"
-href="https://andrewchendrickson.github.io/who-is-AndyH-2026.png"
-target="_blank"
-rel="noopener noreferrer">
-&gt; whois AndyH (2026)
-</a>
-</div>
-
-<div style="text-align:center;font-family:'Courier New';margin-top:20px;">
-<p style="font-size:12px;color:#666;">
-Copyright default-to-safe.org 2025. All rights reserved.
-</p>
-
-<p class="site-disclaimer">
-  This is a personal website and is not an official
-  website of the Federal Communications Commission.
-  Content and views expressed here are personal
-  and do not necessarily represent the views or
-  positions of the FCC or the United States Government.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- CONTACT MODAL -->
-
-<div id="contact-modal" style="
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.5);
-z-index:2000;
-" onclick="closeContactModal()">
-
-<div style="
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:white;
-padding:30px;
-border-radius:15px;
-max-width:400px;
-width:90%;
-animation:modalSlideIn .3s ease;
-" onclick="event.stopPropagation()">
-
-<h3 style="color:#5d87a1;margin-bottom:20px;text-align:center;">
-Let's Connect
-</h3>
-
-<a href="https://www.linkedin.com/in/andrewhendrickson/"
-target="_blank"
-rel="noopener noreferrer"
-style="display:block;padding:12px;background:#0A66C2;color:white;border-radius:8px;text-align:center;margin-bottom:10px;">
-Connect on LinkedIn
-</a>
-
-<button onclick="copyEmail()"
-style="width:100%;padding:12px;background:#34D399;border:none;color:white;border-radius:8px;cursor:pointer;">
-Copy Andy's Email Address
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<div id="easter-egg" style="
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#000;
-color:#00ff7f;
-font-family:'Courier New',monospace;
-font-size:1.5rem;
-z-index:9999;
-justify-content:center;
-align-items:center;
-text-align:center;
-flex-direction:column;
-">
     <pre id="terminal-output"></pre>
-</div>
 
-<script>
+  </div>
 
-const text=document.getElementById("animated-text");
+  <script>
+    "use strict";
 
-function startTyping(){
-text.style.width="0";
-text.style.animation="none";
-void text.offsetWidth;
-text.style.animation="typing 3s steps(40,end) forwards, blink-caret .75s step-end infinite";
-}
+    // =====================================
+    // Open-source typewriter message
+    // =====================================
 
-function cycleText(){
-text.style.opacity="1";
-startTyping();
-setTimeout(()=>{text.style.opacity="0"},30000);
-}
+    const message =
+      "donate to open source projects that matter to you.";
 
-function openContactModal(){
-document.getElementById("contact-modal").style.display="block";
-document.body.style.overflow="hidden";
-}
+    const typedText =
+      document.getElementById("typed-text");
 
-function closeContactModal(){
-document.getElementById("contact-modal").style.display="none";
-document.body.style.overflow="auto";
-}
+    let typingTimer = null;
+    let cycleTimer = null;
 
-function copyEmail(){
-const email="andrew.hendrickson@gmail.com";
+    function startTyping() {
+      clearTimeout(typingTimer);
 
-navigator.clipboard.writeText(email).then(()=>{
-alert("Email copied to clipboard");
-}).catch(()=>{
-alert("Email: "+email);
-});
-}
+      typedText.textContent = "";
 
-async function updateVisitCounter(){
+      if (
+        window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches
+      ) {
+        typedText.textContent = message;
+        return;
+      }
 
-const namespace="default-to-safe-org";
-const key="homepage-visits";
+      let position = 0;
 
-try{
+      function typeNextCharacter() {
+        if (position < message.length) {
+          typedText.textContent += message.charAt(position);
+          position++;
 
-const res=await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
-const data=await res.json();
-
-document.getElementById("visitor-counter").textContent=
-Number(data.value).toLocaleString();
-
-}catch(e){
-
-document.getElementById("visitor-counter").textContent="—";
-
-}
-
-}
-
-// =====================================
-// Konami Code Easter Egg
-// =====================================
-
-const konamiCode = [
-    "ArrowUp",
-    "ArrowUp",
-    "ArrowDown",
-    "ArrowDown",
-    "ArrowLeft",
-    "ArrowRight",
-    "ArrowLeft",
-    "ArrowRight",
-    "b",
-    "a"
-];
-
-let konamiPosition = 0;
-
-document.addEventListener("keydown", (e) => {
-
-    const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
-
-    if (key === konamiCode[konamiPosition]) {
-
-        konamiPosition++;
-
-        if (konamiPosition === konamiCode.length) {
-
-            activateAudioMode();
-
-            konamiPosition = 0;
+          typingTimer = setTimeout(
+            typeNextCharacter,
+            65
+          );
         }
+      }
 
-    } else {
-
-        konamiPosition = 0;
-
+      typeNextCharacter();
     }
 
-});
+    function cycleText() {
+      startTyping();
+    }
 
-function activateAudioMode() {
+    // =====================================
+    // Contact modal
+    // =====================================
 
-    const overlay = document.getElementById("easter-egg");
-    const terminal = document.getElementById("terminal-output");
+    const contactModal =
+      document.getElementById("contact-modal");
 
-    overlay.style.display = "flex";
+    const contactButton =
+      document.querySelector(".contact-button");
 
-    const lines = [
+    const closeButton =
+      document.querySelector(".modal-close");
+
+    function openContactModal() {
+      contactModal.classList.add("is-open");
+      contactModal.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      document.body.classList.add("modal-open");
+
+      document.getElementById(
+        "copy-status"
+      ).textContent = "";
+
+      closeButton.focus();
+    }
+
+    function closeContactModal(event) {
+      if (
+        event &&
+        event.target !== contactModal
+      ) {
+        return;
+      }
+
+      contactModal.classList.remove("is-open");
+      contactModal.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      document.body.classList.remove("modal-open");
+
+      contactButton.focus();
+    }
+
+    // Close contact modal using Escape key
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+        if (
+          event.key === "Escape" &&
+          contactModal.classList.contains("is-open")
+        ) {
+          closeContactModal();
+        }
+      }
+    );
+
+    // Keep keyboard focus inside open modal
+
+    contactModal.addEventListener(
+      "keydown",
+      function(event) {
+        if (event.key !== "Tab") {
+          return;
+        }
+
+        const focusable =
+          Array.from(
+            contactModal.querySelectorAll(
+              "button, a[href]"
+            )
+          );
+
+        const first = focusable[0];
+        const last =
+          focusable[focusable.length - 1];
+
+        if (
+          event.shiftKey &&
+          document.activeElement === first
+        ) {
+          event.preventDefault();
+          last.focus();
+        } else if (
+          !event.shiftKey &&
+          document.activeElement === last
+        ) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    );
+
+    // =====================================
+    // Copy email address
+    // =====================================
+
+    async function copyEmail() {
+      const email =
+        "andrew.hendrickson@gmail.com";
+
+      const status =
+        document.getElementById("copy-status");
+
+      try {
+        if (
+          !navigator.clipboard ||
+          !window.isSecureContext
+        ) {
+          throw new Error(
+            "Clipboard API unavailable"
+          );
+        }
+
+        await navigator.clipboard.writeText(email);
+
+        status.textContent =
+          "Email copied to clipboard.";
+
+      } catch (error) {
+        status.textContent =
+          "Email: " + email;
+      }
+    }
+
+    // =====================================
+    // Konami Code Easter Egg
+    // =====================================
+
+    const konamiCode = [
+      "ArrowUp",
+      "ArrowUp",
+      "ArrowDown",
+      "ArrowDown",
+      "ArrowLeft",
+      "ArrowRight",
+      "ArrowLeft",
+      "ArrowRight",
+      "b",
+      "a"
+    ];
+
+    let konamiPosition = 0;
+    let audioModeActive = false;
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (audioModeActive) {
+          return;
+        }
+
+        if (
+          contactModal.classList.contains(
+            "is-open"
+          )
+        ) {
+          return;
+        }
+
+        const key =
+          event.key.length === 1
+            ? event.key.toLowerCase()
+            : event.key;
+
+        if (
+          key === konamiCode[konamiPosition]
+        ) {
+          konamiPosition++;
+
+          if (
+            konamiPosition === konamiCode.length
+          ) {
+            konamiPosition = 0;
+            activateAudioMode();
+          }
+
+        } else {
+          konamiPosition =
+            key === konamiCode[0] ? 1 : 0;
+        }
+      }
+    );
+
+    function activateAudioMode() {
+      if (audioModeActive) {
+        return;
+      }
+
+      audioModeActive = true;
+
+      const overlay =
+        document.getElementById(
+          "easter-egg"
+        );
+
+      const terminal =
+        document.getElementById(
+          "terminal-output"
+        );
+
+      overlay.classList.add("is-active");
+      overlay.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      const lines = [
         "user@linux ~ % sudo enable-audio-mode",
         "",
         "[ OK ] Initializing studio...",
@@ -842,56 +1445,71 @@ function activateAudioMode() {
         "[ OK ] Starting DMV Sound Lab...",
         "",
         "Redirecting..."
-    ];
+      ];
 
-    terminal.textContent = "";
+      terminal.textContent = "";
 
-    let i = 0;
+      let lineIndex = 0;
 
-    function nextLine() {
+      function nextLine() {
+        if (lineIndex < lines.length) {
+          terminal.textContent +=
+            lines[lineIndex] + "\n";
 
-        if (i < lines.length) {
+          lineIndex++;
 
-            terminal.textContent += lines[i] + "\n";
-
-            i++;
-
-            setTimeout(nextLine, 650);
+          setTimeout(nextLine, 650);
 
         } else {
+          setTimeout(function() {
 
-            setTimeout(() => {
+            terminal.textContent += "\n";
+            terminal.textContent +=
+              "Opening hidden profile...\n\n";
+            terminal.textContent +=
+              "user@linux ~ % whois AndyH --audio\n\n";
+            terminal.textContent +=
+              "Redirecting to DMV Sound Lab...\n";
 
-    terminal.textContent += "\n";
-    terminal.textContent += "Opening hidden profile...\n\n";
-    terminal.textContent += "user@linux ~ % whois AndyH --audio\n\n";
-    terminal.textContent += "Redirecting to DMV Sound Lab...\n";
+            setTimeout(function() {
+              window.location.href =
+                "https://dmvsoundlab.com";
+            }, 7000);
 
-    setTimeout(() => {
-
-        window.location.href = "https://dmvsoundlab.com";
-
-    }, 7000);
-
-}, 1000);
-
+          }, 1000);
         }
+      }
 
+      nextLine();
     }
 
-    nextLine();
+    // =====================================
+    // Page initialization
+    // =====================================
 
-}
-      
-document.addEventListener("DOMContentLoaded",()=>{
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
 
-cycleText();
-setInterval(cycleText,60000);
+        cycleText();
 
-});
+        if (
+          !window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches
+        ) {
+          cycleTimer = setInterval(
+            cycleText,
+            60000
+          );
+        }
 
-</script>
+      }
+    );
+
+  </script>
 
 </body>
 </html>
+
 
